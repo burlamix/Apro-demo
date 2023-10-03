@@ -1,0 +1,5 @@
+proc python;
+submit;
+print("Hello from Python")
+endsubmit;
+run;
