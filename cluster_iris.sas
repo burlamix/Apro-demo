@@ -1,0 +1,13 @@
+proc aceclus data=sashelp.iris out=ace p=.02 outstat=score;
+   var SepalLength SepalWidth PetalLength PetalWidth ;
+run;
+proc sgplot data=ace;
+   scatter y=can2 x=can1 / group=Species;
+   keylegend / title="Species";
+run;
+proc fastclus data=ace maxc=3 maxiter=10 conv=0 out=clus;
+   var can:;
+run;
+proc freq;
+   tables cluster*Species;
+run;
